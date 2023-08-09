@@ -1,6 +1,18 @@
 docker stop 53098ec621a9
 docker kill 53098ec621a9
 
+sudo systemctl status docker
+sudo systemctl enable docker
+
+# Starting Docker-Engine on boot
+sudo systemctl enable docker.service
+sudo systemctl enable /usr/lib/systemd/system/docker.service
+
+sudo systemctl start docker
+sudo service docker restart
+
+
+
 
 
 

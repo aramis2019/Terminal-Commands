@@ -9,8 +9,6 @@ hostnamectl
 # display Linux distro version
 cat /etc/*-release
 
-
-
 ping example.com -i10  -v -D -R
 
 
@@ -38,11 +36,20 @@ source airflow_env/bin/activate
 airflow info
 airflow plugins
 
-# Ubuntu: Airflow scheduler 
+# Ubuntu: Airflow scheduler
 source airflow_env/bin/activate
-airflow scheduler 
+airflow scheduler
 
-# Ubuntu: Airflow scheduler 
+# Ubuntu: Airflow scheduler
 source airflow_env/bin/activate
-airflow webserver 
+airflow webserver
 
+
+#Display All Open Network Ports
+ netstat -tulpn
+
+ #Display All TCP Sockets
+ netstat -nat
+
+ #Display All UDP Sockets
+  netstat -nau
