@@ -30,3 +30,9 @@ airflow scheduler -D --log-file /home/ec2-user/airflow/logs/scheduler/log.txt --
 cd ~/airflow
 source .venv/bin/activate
 airflow webserver -D --port 8080 --log-file /home/ec2-user/airflow/logs/webserver/log.txt --stderr /home/ec2-user/airflow/logs/webserver/std-error.txt --stdout /home/ec2-user/airflow/logs/webserver/std-out.txt
+
+
+# Docker Airflow
+sudo systemctl enable docker-airflow-app
+sudo systemctl start docker-airflow-app
+sudo systemctl status docker-airflow-app

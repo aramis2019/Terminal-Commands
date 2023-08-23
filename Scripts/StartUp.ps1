@@ -1,3 +1,6 @@
+#Windows proxy
+reg query "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings" | find /i "proxyserver"
+
 #WSL
 wsl.exe --status
 wsl --list --online

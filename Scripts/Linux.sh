@@ -28,6 +28,7 @@ cat /etc/resolv.conf | grep nameserver | awk '{ print "host ip:" $2 }'
 sudo apt update
 sudo apt install openssh-server
 sudo service ssh status
+systemctl status sshd
 sudo systemctl start sshd.service
 ifconfig
 
