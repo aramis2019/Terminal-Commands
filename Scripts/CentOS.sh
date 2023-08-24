@@ -36,3 +36,4 @@ airflow webserver -D --port 8080 --log-file /home/ec2-user/airflow/logs/webserve
 sudo systemctl enable docker-airflow-app
 sudo systemctl start docker-airflow-app
 sudo systemctl status docker-airflow-app
+sudo systemctl stop docker-airflow-app
