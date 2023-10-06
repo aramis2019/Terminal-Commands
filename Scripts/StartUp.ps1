@@ -35,10 +35,3 @@ docker login --username protasovd artifacts.devops.bfsaws.net/docker-test-dev
 docker run -it python:alpine sh
 pip install --upgrade pip
 
-# dotnet
-echo "Windows version"
-ver
-dotnet --list-runtimes
-dotnet --list-sdks
-dotnet --version
-dotnet --info
