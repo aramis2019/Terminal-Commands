@@ -1,6 +1,8 @@
 docker stop 53098ec621a9
 docker kill 53098ec621a9
 
+docker container prune
+
 sudo systemctl status docker
 sudo systemctl enable docker
 sudo usermod -aG docker $USER && newgrp docker
@@ -11,11 +13,6 @@ sudo systemctl enable /usr/lib/systemd/system/docker.service
 
 sudo systemctl start docker
 sudo service docker restart
-
-
-
-
-
 
 
 
@@ -32,3 +29,5 @@ sudo service ssh status
 ssh-keygen
 # Add public key to authorized_keys
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+
