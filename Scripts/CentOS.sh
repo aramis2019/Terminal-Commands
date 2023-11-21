@@ -37,3 +37,28 @@ sudo systemctl enable docker-airflow-app
 sudo systemctl start docker-airflow-app
 sudo systemctl status docker-airflow-app
 sudo systemctl stop docker-airflow-app
+
+
+# проверка через какой порт есть активное подключение
+netstat -tulnp | grep ssh
+
+# Просмотр всех групп
+cat /etc/group
+
+groupadd dev
+groupadd developmnet
+useradd -m dev -G developmnet -s /bin/bash -p americanostrichD112 -d /home/development -g dev
+
+# Add the user back to the sudo group
+adduser dev sudo
+groups dev
+usermod -aG docker dev
+
+# Из под dev создаем папку 
+mkdir /home/development/.ssh
+chmod g-w /home/development/
+chmod 700  ~/.ssh
+chmod 600  ~/.ssh/authorized_keys
+
+# Просмотр лога
+sudo journalctl -u sshd

@@ -29,3 +29,14 @@ wsl --shutdown
 
 wsl.exe -d Ubuntu-22.04
 wsl.exe -d wsl-vpnkit --cd /app wsl-vpnkit
+
+
+##############################################
+### SSH Keys
+##############################################
+# https://devblogs.microsoft.com/commandline/sharing-ssh-keys-between-windows-and-wsl-2/
+
+# Copy keys to  c:\Users\<username>\.ssh
+
+cp -r /mnt/c/Users/<username>/.ssh ~/.ssh
+chmod 600 ~/.ssh/id_rsa

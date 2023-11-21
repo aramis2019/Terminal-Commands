@@ -54,3 +54,45 @@ airflow webserver
 
  #Display All UDP Sockets
   netstat -nau
+
+##############################################
+#SSH Server on Ubuntu 22
+##############################################
+
+sudo service ssh start
+sudo service ssh stop
+sudo service ssh status
+# Generate kays in /home/username/.ssh/id_rsa
+ssh-keygen
+# Add public key to authorized_keys
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+
+##############################################
+### SSH Keys
+##############################################
+# проверка стутуса ssh
+systemctl status sshd -l
+    
+systemctl stop firewalld
+systemctl disable firewalld
+
+nano /etc/ssh/sshd_config
+
+##############################################
+##############################################
+##############################################
+#Firewall
+##############################################
+
+sudo ufw app list
+sudo ufw status
+sudo ufw COMMAND
+
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTPS'
+sudo ufw allow OpenSSH
+sudo ufw allow 8081
+sudo ufw allow 33500
+
+sudo ufw enable
+
