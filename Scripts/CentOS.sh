@@ -13,9 +13,7 @@ python3.7 -V
 sudo python3.7 -m pip --version
 pwsh -Command '$PSVersionTable'
 
-# Processes
-htop --user=ec2-user
-htop --user=$USER
+
 
 # Run Airflow env
 cd ~/airflow

@@ -19,7 +19,6 @@ docker logs -f [CONTAINER NAME]
 
 docker build ./add-apt-packages -t dmitryprotasov769/airflow:2.6.3-python3.10-broadridge2.0
 
-
 docker inspect nexus-repository
 
 
@@ -46,7 +45,7 @@ docker volume ls
 docker inspect [volume name]
 
 ##############################################
-# Examples Nexus
+# Example Nexus
 ##############################################
 
 
@@ -75,8 +74,22 @@ cd /home/development/nexus-app
 docker exec -it nexus-repository /bin/bash
 cat nexus-data/admin.password
 
+docker logs -f nexus-repository
+
 ##############################################
-# Examples
+# Example Gitlab
 ##############################################
 
+sudo docker pull gitlab/gitlab-ce:16.6.1-ce.0
 
+sudo mkdir -p /srv/gitlab/config /srv/gitlab/logs /srv/gitlab/data
+
+sudo docker run --detach \
+  --hostname 45.132.50.100 \
+  --publish 1096:443 --publish 1095:80 --publish 1097:22 \
+  --name gitlab \
+  --restart always \
+  --volume /srv/gitlab/config:/etc/gitlab \
+  --volume /srv/gitlab/logs:/var/log/gitlab \
+  --volume /srv/gitlab/data:/var/opt/gitlab \
+  gitlab/gitlab-ce:16.6.1-ce.0

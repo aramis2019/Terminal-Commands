@@ -46,6 +46,20 @@ source airflow_env/bin/activate
 airflow webserver
 
 
+##############################################
+# Processes
+##############################################
+# Processes
+htop --user=ec2-user
+htop --user=$USER
+
+kill -KILL [process id]
+
+
+##############################################
+# Network
+##############################################
+
 #Display All Open Network Ports
  netstat -tulpn
 
@@ -54,6 +68,9 @@ airflow webserver
 
  #Display All UDP Sockets
   netstat -nau
+
+  # Show open Ports
+  netstat -tulpn | grep LISTEN
 
 ##############################################
 #SSH Server on Ubuntu 22
@@ -72,14 +89,12 @@ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 ##############################################
 # проверка стутуса ssh
 systemctl status sshd -l
-    
+
 systemctl stop firewalld
 systemctl disable firewalld
 
 nano /etc/ssh/sshd_config
 
-##############################################
-##############################################
 ##############################################
 #Firewall
 ##############################################
@@ -87,12 +102,10 @@ nano /etc/ssh/sshd_config
 sudo ufw app list
 sudo ufw status
 sudo ufw COMMAND
-
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'Nginx HTTPS'
 sudo ufw allow OpenSSH
 sudo ufw allow 8081
 sudo ufw allow 33500
-
 sudo ufw enable
-
+sudo ufw reload
