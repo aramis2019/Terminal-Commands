@@ -40,3 +40,13 @@ wsl.exe -d wsl-vpnkit --cd /app wsl-vpnkit
 
 cp -r /mnt/c/Users/<username>/.ssh ~/.ssh
 chmod 600 ~/.ssh/id_rsa
+
+
+
+
+##############################################
+### Ubuntu-22.04
+##############################################
+
+
+

@@ -21,6 +21,22 @@ docker build ./add-apt-packages -t dmitryprotasov769/airflow:2.6.3-python3.10-br
 
 docker inspect nexus-repository
 
+##############################################
+#Configure Docker to use a proxy server. https://docs.docker.com/network/proxy/#:~:text=Configure%20proxy%20settings%20per%20daemon,instead%20of%20the%20default%20key.
+##############################################
+
+~/.docker/config.json
+
+{
+ "proxies": {
+   "default": {
+     "httpProxy": "host.internal:3128",
+     "httpsProxy": "host.internal:3128",
+     "noProxy": "localhost,127.0.0.0/8"
+   }
+ }
+}
+
 
 ##############################################
 #docker-compose
@@ -30,8 +46,6 @@ docker compose --profile flower up -d
 
 docker-compose up -d
 docker-compose down
-
-
 
 docker volume ls
 docker inspect time-app_mysql_data
@@ -48,14 +62,12 @@ docker inspect [volume name]
 # Example Nexus
 ##############################################
 
-
 mkdir ~/nexus-app/docker-nexus-repository
+mkdir ~/nexus-app/docker-nexus-repository/nexus-data
 chown -R 200 ~/nexus-app/docker-nexus-repository/nexus-data
 chown -R 200 ~/nexus-app/docker-nexus-repository
 
 docker exec -it nexus-repository /bin/bash
-
-62dddecb-21db-40b5-a824-9abc3587a7ba
 
 docker run -d -it -p 8081:8081 --name nexus  -v nexus-data:/nexus-data sonatype/nexus3
 docker run -d -p 8081:8081 --name nexus -e INSTALL4J_ADD_VM_PARAMS="-Xms2703m -Xmx2703m  -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=/some-other-dir" sonatype/nexus3
@@ -75,21 +87,3 @@ docker exec -it nexus-repository /bin/bash
 cat nexus-data/admin.password
 
 docker logs -f nexus-repository
-
-##############################################
-# Example Gitlab
-##############################################
-
-sudo docker pull gitlab/gitlab-ce:16.6.1-ce.0
-
-sudo mkdir -p /srv/gitlab/config /srv/gitlab/logs /srv/gitlab/data
-
-sudo docker run --detach \
-  --hostname 45.132.50.100 \
-  --publish 1096:443 --publish 1095:80 --publish 1097:22 \
-  --name gitlab \
-  --restart always \
-  --volume /srv/gitlab/config:/etc/gitlab \
-  --volume /srv/gitlab/logs:/var/log/gitlab \
-  --volume /srv/gitlab/data:/var/opt/gitlab \
-  gitlab/gitlab-ce:16.6.1-ce.0

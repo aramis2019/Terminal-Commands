@@ -1,6 +1,5 @@
 
 
-# General info
 
 # вывести имя ОС с подробностями
 uname -a
@@ -11,8 +10,9 @@ cat /etc/*-release
 
 ping example.com -i10  -v -D -R
 
-
+##############################################
 # Get IP and Proxy
+##############################################
 clear
 ip addr
 ip r
@@ -24,7 +24,9 @@ cat /etc/apt/apt.conf
 cat /etc/environment
 cat /etc/resolv.conf | grep nameserver | awk '{ print "host ip:" $2 }'
 
+##############################################
 # Ubuntu: Install SHH server
+##############################################
 sudo apt update
 sudo apt install openssh-server
 sudo service ssh status
