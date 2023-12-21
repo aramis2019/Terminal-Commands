@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  nexus:
+    hostname: "nexus.combofox.com"
+    image: sonatype/nexus3:3.63.0
+    restart: unless-stopped
+    container_name: nexus-repository
+    volumes:
+      - type: bind
+        source: ./nexus-data
+        target: /nexus-data
+    ports:
+      - "8081:8081"
+    environment:
+      - "INSTALL4J_ADD_VM_PARAMS=-Xms2703m -Xmx2703m -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=/nexus-data/javaprefs"
+
+

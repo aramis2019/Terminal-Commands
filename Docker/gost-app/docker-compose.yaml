@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  nexus:
+    image: "ginuerzh/gost:2.11.5"
+    container_name: gost-app
+    restart: always
+    ports:
+      - 1085:1085
+    command: "-L=socks://Putin:Zaebal@:1084 -L=ss://chacha20:BISGSucks@:1085"
+
+
