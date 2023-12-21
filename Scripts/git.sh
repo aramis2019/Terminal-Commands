@@ -24,6 +24,12 @@ git commit -m "Initial commit"
 git push --set-upstream origin main
 
 
+
+git remote add gitlab-docker http://localhost:1095/broadridge/prima/main.git
+git push gitlab-docker main
+
+git push --set-upstream gitlab-docker --all
+
 #####################################################
 gitlab.com
 protassov@gmail.com
