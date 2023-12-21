@@ -29,6 +29,12 @@ UBUNTU_CODENAME=jammy
 mkdir ~/gitlab-app
 sudo chown -R 200 ~/gitlab-app
 nano docker-compose.yml
+
+
+Token name: gitlabdocker-token-21-12-2023
+personal access token:glpat-VUH5nLtN9XFYxNcP9V9Y
+Expires: 17-12-2024
+
 ###########
 
 version: '3.6'

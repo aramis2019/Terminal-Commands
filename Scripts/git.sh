@@ -28,6 +28,10 @@ git push --set-upstream origin main
 gitlab.com
 protassov@gmail.com
 Token name:gitlab-21-12-2023
-Your new personal access token: glpat-x1XTy9ZB_bTgV6fzGwHc
+personal access token: glpat-x1XTy9ZB_bTgV6fzGwHc
 Expires: 17-12-2024
 #####################################################
+gitlab.com WSL
+Token name:gitlabdocker-token-21-12-2023
+personal access token:glpat-VUH5nLtN9XFYxNcP9V9Y
+Expires: 17-12-2024
