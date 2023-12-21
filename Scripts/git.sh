@@ -14,6 +14,17 @@ git init
 git clone https://gitlab.com/Aramis2019/testproject1.git
 
 #####################################################
+Push an existing folder
+#####################################################
+cd existing_folder
+git init --initial-branch=main
+git remote add gitlabcom1 https://gitlab.com/Aramis2019/project2.git
+git add .
+git commit -m "Initial commit"
+git push --set-upstream origin main
+
+
+#####################################################
 gitlab.com
 protassov@gmail.com
 Token name:gitlab-21-12-2023
