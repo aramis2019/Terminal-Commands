@@ -31,6 +31,11 @@ wsl.exe -d Ubuntu-22.04
 wsl.exe -d wsl-vpnkit --cd /app wsl-vpnkit
 
 
+# How to check your available disk space
+wsl.exe --system -d <distribution-name> df -h /mnt/wslg/distro
+
+
+
 ##############################################
 ### SSH Keys
 ##############################################
