@@ -6,3 +6,12 @@ git status
 
 git remote add gitlab-docker http://localhost:1095/broadridge/prima/main.git
 git push --set-upstream gitlab-docker --all
+
+
+### DQ main
+cd D:/Projects/bitbucket.pal.com/DQ/main
+git status
+
+git remote add gitlab-docker http://localhost:1095/broadridge/dq/main.git
+git push --set-upstream gitlab-docker --all
+

@@ -58,4 +58,13 @@ docker inspect time-app_mysql_data
 docker volume ls
 docker inspect [volume name]
 
+##############################################
+# Example TeamCity
+https://www.jetbrains.com/teamcity/download/docker-thanks.html
+##############################################
 
+docker run --name teamcity-server-instance \
+-v <path to data directory>:/data/teamcity_server/datadir \
+-v <path to logs directory>:/opt/teamcity/logs \
+-p <port on host>:8111 \
+jetbrains/teamcity-server

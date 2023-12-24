@@ -55,3 +55,15 @@ chmod 600 ~/.ssh/id_rsa
 
 
 
+
+##############################################
+### Rename Distro
+##############################################
+wsl --shutdown
+mkdir D:\wsl_export
+mkdir D:\wsl\webserver
+
+wsl --export ubuntu  D:\wsl_export\webserver.tar
+wsl --import webserver "d:\wsl\webserver\" "D:\wsl_export\webserver.tar"
+wsl --unregister ubuntu
+
