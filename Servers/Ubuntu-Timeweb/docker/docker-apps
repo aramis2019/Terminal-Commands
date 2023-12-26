@@ -1,5 +1,14 @@
 
 
+##############################################
+# Docker nexus
+##############################################
+
+
+
+admin\adminV12345
+dev\americanDev1
+
 
 docker run -d -it -p 8081:8081 --name nexus  -v nexus-data:/nexus-data sonatype/nexus3
 docker run -d -p 8081:8081 --name nexus -e INSTALL4J_ADD_VM_PARAMS="-Xms2703m -Xmx2703m  -XX:MaxDirectMemorySize=2703m -Djava.util.prefs.userRoot=/some-other-dir" sonatype/nexus3
@@ -28,3 +37,13 @@ cat nexus-data/admin.password
 
 
 docker logs -f nexus-repository
+
+
+
+##############################################
+# Docker Example Gitlab
+# https://docs.gitlab.com/ee/install/docker.html
+##############################################
+
+http://localhost:1095/
+root\americanG1

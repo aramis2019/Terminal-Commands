@@ -1,4 +1,4 @@
-
+wsl name: ubuntu-br-01
 
 root\14all41
 dev\14all41
@@ -14,14 +14,15 @@ VERSION="22.04.2 LTS (Jammy Jellyfish)"
 VERSION_CODENAME=jammy
 ID=ubuntu
 ID_LIKE=debian
-HOME_URL="https://www.ubuntu.com/"
-SUPPORT_URL="https://help.ubuntu.com/"
-BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
-PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=jammy
 ##############################################
 ## Ports
 ##############################################
+
+
+1095 Gitlab 80
+1096 Gitlab 443
+1097 Gitlab 22
 
 8081 - Nexus
 

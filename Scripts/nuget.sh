@@ -13,14 +13,20 @@ nuget list JSON -AllVersions -Source "https://nexus.combofox.com/repository/nuge
 
 nuget search  JSON logging -Verbosity detailed -Source "https://nexus.combofox.com/repository/nuget-group/v2"
 
- nuget search logging -Verbosity detailed
+nuget search logging -Verbosity detailed
 
-  nuget search logging -Verbosity detailed -Source "https://nexus.combofox.com/repository/nuget-group/v2"
+nuget search logging -Verbosity detailed -Source "https://nexus.combofox.com/repository/nuget-group/v2"
 
 
 
- nuget sources Add -Name Artifactory -Source https://artifacts.devops.bfsaws.net/artifactory/api/nuget/v3/GTO-BAMS-VIRTUAL-NUGET -username dmitry.protasov@broadridge.com -password americanB47
- nuget setapikey 'protasovd:americanB47' -source Artifactory  
+nuget sources Add -Name Artifactory -Source https://artifacts.devops.bfsaws.net/artifactory/api/nuget/v3/GTO-BAMS-VIRTUAL-NUGET -username dmitry.protasov@broadridge.com -password americanB47
+
+nuget sources Add -Name nuget-group -Source https://nexus.combofox.com/repository/nuget-group/index.json -username admin -password adminV12345
+nuget sources Add -Name nuget-hosted-br -Source https://nexus.combofox.com/repository/nuget-hosted-br/index.json -username admin -password adminV12345
+nuget sources Add -Name nuget-hosted-br2 -Source https://nexus.combofox.com/repository/nuget-hosted-br -username admin -password adminV12345
+
+
+nuget setapikey 'protasovd:americanB47' -source Artifactory  
 
 
 # Add 
@@ -48,4 +54,8 @@ nuget list JSON -Verbosity detailed -Source "https://artifacts.devops.bfsaws.net
 nuget push ActiPro.4.0.284 -Source http://localhost:8081/repository/nuget-hosted-br/index.json
 c:\tools\nuget\nuget.exe push ActiPro.4.0.284 -Source "http://localhost:8081/repository/nuget-hosted-br/index.json" -username admin -password adminV12345
 
+c:\tools\nuget\nuget.exe push Abacus.Client.0.3.4233.nupkg -Source "https://nexus.combofox.com/repository/nuget-hosted-br/index.json" -username admin1 -password adminV12345
 
+## Working with https://nexus.combofox.com/
+nuget sources Add -Name nuget-hosted-br -Source https://nexus.combofox.com/repository/nuget-hosted-br/index.json -username admin -password adminV12345
+c:\tools\nuget\nuget.exe push Abacus.Client.0.3.4233.nupkg -Source "nuget-hosted-br"

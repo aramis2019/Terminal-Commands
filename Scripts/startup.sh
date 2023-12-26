@@ -35,3 +35,5 @@ docker login --username protasovd artifacts.devops.bfsaws.net/docker-test-dev
 docker run -it python:alpine sh
 pip install --upgrade pip
 
+# home gost
+c:\tools\gost\gost-windows-386.exe -L=:3128 -F=ss://chacha20:BISGSucks@45.132.50.100:1085
