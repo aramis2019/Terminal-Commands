@@ -106,3 +106,20 @@ crontab -e
 
 ####################################################
 ####################################################
+https://amplify.nginx.com/dashboard/28231
+
+https://amplify.nginx.com/dashboard
+https://github.com/nginxinc/nginx-amplify-doc/blob/master/amplify-guide.md#configuring-nginx-for-metric-collection
+
+
+curl -L -O https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh
+
+API_KEY='28e1aebfc8b5edeca62e6ba21fd7de3f' sh ./install.sh
+
+
+ To start and stop the Amplify Agent type:
+
+     service amplify-agent { start | stop }
+
+
+     curl http://127.0.0.1/nginx_status

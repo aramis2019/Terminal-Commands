@@ -77,28 +77,54 @@ udp        0      0 45.132.50.100:68        0.0.0.0:*                           
 8111 - Teamcity
 
 ##############################################
-## Add Teamcity
+## Add new sub-domen "IP"
 ##############################################
 
-sudo mkdir /srv/teamcity
-sudo mkdir -p  /srv/teamcity/logs /srv/teamcity/teamcity_server  /srv/teamcity/teamcity_server/datadir
+sudo mkdir -p /var/www/ip.combofox.com
+sudo mkdir -p /var/www/ip.combofox.com/html
 
-chown -R 1000:1000
-sudo chown -R 1000:1000 /srv/teamcity
-sudo chown -R 1000:1000 /srv/teamcity/logs
-sudo chown -R 1000:1000 /srv/teamcity/teamcity_server
-sudo chown -R 1000:1000 /srv/teamcity/teamcity_server/datadir
+sudo chown -R $USER:$USER /var/www/ip.combofox.com
+sudo chown -R $USER:$USER /var/www/ip.combofox.com/html
+sudo chmod -R 755 /var/www/ip.combofox.com
+sudo chmod -R 755 /var/www/ip.combofox.com/html
 
-docker run --name teamcity-server-instance  \
-    -v /srv/teamcity/teamcity_server/datadir:/data/teamcity_server/datadir \
-    -v /srv/teamcity/logs:/opt/teamcity/logs  \
-    -p 8111:8111 \
-    jetbrains/teamcity-server
+# Add same sample to 
+nano /var/www/ip.combofox.com/html/index.html
+
+# Add /etc/nginx/sites-available/ip.combofox.com   
+sudo nano /etc/nginx/sites-available/ip.combofox.com
+server {
+    listen 80;
+    listen [::]:80;
+    root /var/www/ip.combofox.com/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name ip.combofox.com www.ip.combofox.com;
+}
+
+sudo ln -s /etc/nginx/sites-available/ip.combofox.com /etc/nginx/sites-enabled/
 
 
-sudo ufw status
-sudo ufw allow 8111
+$ sudo certbot --nginx -d ip.combofox.com -d www.ip.combofox.com
 
-# Please review the settings below before proceeding with the first TeamCity start.
-# TeamCity server stores server configuration settings, project definitions, build results and caches on disk in a Data Directory.
-# Location of the Data Directory: /data/teamcity_server/datadir
+
+# root@2119933-cu88699:~# sudo certbot --nginx -d ip.combofox.com -d www.ip.combofox.com
+# Saving debug log to /var/log/letsencrypt/letsencrypt.log
+# Requesting a certificate for ip.combofox.com and www.ip.combofox.com
+
+# Successfully received certificate.
+# Certificate is saved at: /etc/letsencrypt/live/ip.combofox.com/fullchain.pem
+# Key is saved at:         /etc/letsencrypt/live/ip.combofox.com/privkey.pem
+# This certificate expires on 2024-03-26.
+# These files will be updated when the certificate renews.
+# Certbot has set up a scheduled task to automatically renew this certificate in the background.
+
+# Deploying certificate
+# Successfully deployed certificate for ip.combofox.com to /etc/nginx/sites-enabled/ip.combofox.com
+# Successfully deployed certificate for www.ip.combofox.com to /etc/nginx/sites-enabled/ip.combofox.com
+# Congratulations! You have successfully enabled HTTPS on https://ip.combofox.com and https://www.ip.combofox.com
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# If you like Certbot, please consider supporting our work by:
+#  * Donating to ISRG / Let's Encrypt:   https://letsencrypt.org/donate
+#  * Donating to EFF:                    https://eff.org/donate-le
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

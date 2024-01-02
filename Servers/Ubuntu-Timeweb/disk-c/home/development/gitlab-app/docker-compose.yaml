@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  web:
+    image: 'gitlab/gitlab-ce:16.6.1-ce.0'
+    restart: always
+    container_name: gitlab
+    hostname: 'gitlab.combofox.com'
+#    environment:
+#      GITLAB_OMNIBUS_CONFIG: |
+#        external_url 'http://localhost:1095'
+    ports:
+      - '1095:80'
+      - '1096:443'
+      - '1097:22'
+    volumes:
+      - '/srv/gitlab/config:/etc/gitlab'
+      - '/srv/gitlab/logs:/var/log/gitlab'
+      - '/srv/gitlab/data:/var/opt/gitlab'
+
