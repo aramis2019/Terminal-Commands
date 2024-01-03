@@ -15,3 +15,6 @@ dotnet --info
 
 net stop was /y 
 net start w3svc
+
+
+netsh interface ipv4 show excludedportrange protocol=tcp
